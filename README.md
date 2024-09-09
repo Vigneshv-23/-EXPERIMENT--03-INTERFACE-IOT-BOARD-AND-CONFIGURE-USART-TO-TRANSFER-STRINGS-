@@ -1,9 +1,9 @@
-![image](https://github.com/user-attachments/assets/4c16b68b-5710-413f-8779-95f0072d0611)
-###  DATE: 
 
-###  NAME: 
-###  ROLL NO :
-###  DEPARTMENT: 
+###  DATE: 09.09.2024
+
+###  NAME: VIGNESH V
+###  ROLL NO :212223110062
+###  DEPARTMENT: CSE(IoT)
 
 # EXPERIMENT--04-INTERFACING IOT DEVELOPMENT BOARD AND CONFIGURE USART FOR TRANSFERRING STRINGS 
 ## Aim: To Interface iot development board for configuring the the usart and transfer strings though it 
