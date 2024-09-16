@@ -63,8 +63,7 @@ configure in the usart 2 as asynchronous mode and set the baud rate as 115200 as
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include"stdbool.h"
-#include"stdio.h"
+
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
@@ -95,14 +94,12 @@ UART_HandleTypeDef huart2;
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_USART2_UART_Init(void);
+
 #if defined (__ICCARM__) || defined (__ARMCC_VERSION)
 #define PUTCHAR_PROTOTYPE int fputc(int ch, FILE *f)
 #elif defined(__GNUC__)
-   /* With GCC, small printf (option LD Linker->Libraries->Small printf
-   set to 'Yes') calls __io_putchar() */
 #define PUTCHAR_PROTOTYPE int __io_putchar(int ch)
-#endif /* __ICCARM__ || __ARMCC_VERSION */
-/* USER CODE BEGIN PFP */
+#endif
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -149,36 +146,22 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+	  printf("your roll no and dept ");
+	  HAL_Delay(1000);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
 }
-
-
 PUTCHAR_PROTOTYPE
 {
-	HAL_UART_Transmit(&huart2,(uint8_t*)&ch,1,0xFFFF);
-	return ch;
+
+  HAL_UART_Transmit(&huart2, (uint8_t *)&ch, 1, 0xFFFF);
+
+  return ch;
 }
 
-
-
-void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
-{
-	if((GPIO_Pin == GPIO_PIN_1))
-	{
-		 
-		printf("INTERRUPT GENERATED  ");
-				 		 HAL_Delay(1000);
-	}
-	else
-	{
-		printf("NO INTERRUPT GENERATED  ");
-						 		 HAL_Delay(1000)
-	}
-}
 /**
   * @brief System Clock Configuration
   * @retval None
@@ -235,7 +218,7 @@ static void MX_USART2_UART_Init(void)
 
   /* USER CODE END USART2_Init 1 */
   huart2.Instance = USART2;
-  huart2.Init.BaudRate = 115200;
+  huart2.Init.BaudRate = 9600;
   huart2.Init.WordLength = UART_WORDLENGTH_8B;
   huart2.Init.StopBits = UART_STOPBITS_1;
   huart2.Init.Parity = UART_PARITY_NONE;
@@ -274,20 +257,9 @@ static void MX_USART2_UART_Init(void)
   */
 static void MX_GPIO_Init(void)
 {
-  GPIO_InitTypeDef GPIO_InitStruct = {0};
 
   /* GPIO Ports Clock Enable */
   __HAL_RCC_GPIOA_CLK_ENABLE();
-
-  /*Configure GPIO pin : PA1 */
-  GPIO_InitStruct.Pin = GPIO_PIN_1;
-  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
-
-  /* EXTI interrupt init*/
-  HAL_NVIC_SetPriority(EXTI1_IRQn, 0, 0);
-  HAL_NVIC_EnableIRQ(EXTI1_IRQn);
 
 }
 
@@ -328,11 +300,13 @@ void assert_failed(uint8_t *file, uint32_t line)
 #endif /* USE_FULL_ASSERT */
 
 
+
+
 ```
 
 ## Output screen shots of Serial port utility   :
- 
- ![image](https://github.com/user-attachments/assets/cc93b6aa-2015-4a53-9bd8-de21266ca8e5)
+ ![image](https://github.com/user-attachments/assets/11ab7a94-c5b8-4c49-8f03-abe15a56b7d5)
+
 
  
  
